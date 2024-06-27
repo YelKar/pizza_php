@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div><img src="{{ path("uploads", {filename: product.getImage()}) }}" alt="{{ product.getName() }}"></div>
+<span>{{ product.getPrice() }}</span>
+<span>{{ product.getName() }}</span>
+<span>{{ product.getDescription() }}</span>
+</body>
+</html>

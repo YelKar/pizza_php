@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    <div class="field_group">
+        <label>
+            Раздел:
+            <input name="section" type="text" placeholder="Пицца, Шаурма и т. д.">
+        </label>
+        <label>
+            Название:
+            <input required name="name" type="text" placeholder="Пеперони">
+        </label>
+        <label>
+            Описание:
+            <textarea name="description" placeholder=""></textarea>
+        </label>
+        <label>
+            Цена (В рублях):
+            <input required name="price" type="number" min="0" oninput="validity.valid||(value='');" placeholder="249">
+        </label>
+    </div>
+    <div class="field_group">
+        <label>
+            Картинка:
+            <input accept="image/*" required name="image" type="file">
+        </label>
+    </div>
+    <input type="submit">
+</form>
+<script src="/js/preview_file.js"></script>
+</body>
+</html>

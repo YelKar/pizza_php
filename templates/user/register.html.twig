@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+{{ form_start(form) }}
+  <div class="field_group">
+    <label>
+      Фамилия:
+      {{ form_widget(form.lastName) }}
+    </label>
+    <label>
+      Имя:
+      {{ form_widget(form.firstName) }}
+    </label>
+  </div>
+  <div class="field_group">
+    <label>
+      Почта:
+      {{ form_widget(form.email) }}
+    </label>
+    <label>
+      Телефон:
+      {{ form_widget(form.phone) }}
+    </label>
+  </div>
+  <div class="field_group">
+    <label>
+      Пароль:
+      {{ form_widget(form.password) }}
+    </label>
+  </div>
+  <div class="field_group">
+    <label>
+      {{ form_widget(form.avatar) }}
+    </label>
+  </div>
+  {{ form_widget(form.submit, {attr: {value: 'Регистрация'}}) }}
+{{ form_end(form) }}
+<script src="/js/preview_file.js"></script>
+</body>
+</html>

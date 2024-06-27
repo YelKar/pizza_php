@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+  <div class="field_group">
+    <label>
+      Фамилия:
+      <input required name="last_name" type="text" placeholder="Иванов" value="{{ user.getLastName() }}">
+    </label>
+    <label>
+      Имя:
+      <input required name="first_name" type="text" placeholder="Иван" value="{{ user.getFirstName() }}">
+    </label>
+  </div>
+  <div class="field_group">
+    <label>
+      Почта:
+      <input required name="email" type="email" placeholder="ivanov@mail.ru" value="{{ user.getEmail() }}">
+    </label>
+    <label>
+      Телефон:
+      <input type="tel" placeholder="+77777777777" name="phone" value="{{ user.getPhone() }}">
+    </label>
+  </div>
+  <input type="submit">
+</form>
+<script src="/js/preview_file.js"></script>
+</body>
+</html>
