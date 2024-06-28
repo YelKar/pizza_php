@@ -1,3 +1,3 @@
-function addToCart(id) {
-    alert(`Товар ${id} добавлен в корзину`);
+async function addToCart(id) {
+    await fetch(`/cart/add/${id}`);
 }

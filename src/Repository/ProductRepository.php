@@ -28,7 +28,7 @@ class ProductRepository
         $this->entityManager->flush();
     }
 
-    public function find(int $id): Product
+    public function find(int $id): ?Product
     {
         return $this->entityManager->find(Product::class, $id);
     }

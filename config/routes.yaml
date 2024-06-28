@@ -43,6 +43,15 @@ list_users:
     methods: GET
     controller: App\Controller\UserController::listUsers
 
+cart:
+    path: /cart
+    methods: GET
+    controller: App\Controller\CartController::showCart
+
+add_to_cart:
+    path: /cart/add/{id}
+    controller: App\Controller\CartController::addProduct
+
 # Api
 api_register:
     path: /api/register

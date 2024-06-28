@@ -23,6 +23,7 @@ class LoginController extends AbstractController
     {
         if(!isset($_SESSION))
         {
+            session_name("sid");
             session_start();
         }
         session_destroy();
@@ -35,9 +36,9 @@ class LoginController extends AbstractController
         $user = $this->userService->findUserByEmail($email);
         if(!isset($_SESSION))
         {
+            session_name("sid");
             session_start();
         }
-        var_dump(session_status());
         $_SESSION["id"] = $user->getId();
         $_SESSION["role"] = $user->getRole();
         var_dump($_SESSION);

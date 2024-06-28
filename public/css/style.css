@@ -48,6 +48,8 @@ img::selection {
     text-decoration: none;
     border-radius: 6px;
     font-family: Manrope, sans-serif;
+    outline: none;
+    border: none;
 }
 
 .filled-button::selection {
@@ -65,6 +67,8 @@ img::selection {
     color: var(--orange);;
     font-size: 16px;
     font-family: Manrope, sans-serif;
+    padding: 9.5px 11px;
+    text-decoration: none;
 }
 
 header {
@@ -136,8 +140,7 @@ header .top-panel {
 /* content */
 main {
     width: var(--page-width);
-    margin: 0 auto;
-    padding: 50px 0;
+    margin: 50px auto 140px;
 }
 
 .search-field {
@@ -212,11 +215,11 @@ label:has(> .search-field:not(:placeholder-shown))::before {
     background-color: white;
 }
 
-.products-section {
+.section {
     margin-top: 70px;
 }
 
-.products-section__title {
+.section__title {
     font-size: 34px;
     font-weight: 700;
     margin-bottom: 50px;
@@ -284,6 +287,10 @@ label:has(> .search-field:not(:placeholder-shown))::before {
     margin-bottom: 20px;
 }
 
+.product__description {
+    display: none;
+}
+
 .product__price {
     font-size: 18px;
 }
@@ -294,7 +301,7 @@ label:has(> .search-field:not(:placeholder-shown))::before {
     vertical-align: middle;
 }
 
-.popup-form__container {
+.popup__container {
     position: fixed;
     top: 0;
     left: 0;
@@ -367,4 +374,86 @@ label:has(> .search-field:not(:placeholder-shown))::before {
     border: none;
 }
 
+.login-form__register-link {
+    display: block;
+    margin-top: 11px;
+    text-align: center;
+}
 
+.login-form__register-link,
+.login-form__register-link a {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--text-color);
+}
+
+.login-form__register-link a {
+    padding-right: 2px;
+    margin-right: -2px;
+    padding-bottom: 2px;
+    margin-bottom: -3px;
+    border-bottom: 1px solid var(--text-color);
+    text-decoration: none;
+}
+
+.product-card {
+    width: 892px;
+    height: 442px;
+    display: grid;
+    grid-template-columns: 420px auto;
+    text-decoration: none;
+    color: var(--text-color);;
+}
+
+.product-card__image {
+    border-radius: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product-card__info {
+    padding: 55px 50px 38px;
+    border-radius: 15px;
+    background-color: #f3f3f3;
+}
+
+.product-card__name {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.product-card__full-description {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 34px;
+    height: 208px;
+
+    border-bottom: 1px solid #c9c9c9;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.product-card__ingredients,
+.product-card__description {
+    display: block;
+    padding: 10px 0;
+}
+
+.product-card__full-description::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card__price {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.product-card__cart-button {
+    font-size: 16px;
+    padding: 9.5px 16.5px;
+    float: right;
+    vertical-align: middle;
+}

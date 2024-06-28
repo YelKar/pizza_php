@@ -23,6 +23,7 @@ class ProductController extends AbstractController
     public function index(): Response
     {
         if (session_status() === PHP_SESSION_NONE) {
+            session_name("sid");
             session_start();
         }
         $sections = $this->productService->listProductsOrderBySections();
@@ -47,6 +48,7 @@ class ProductController extends AbstractController
     public function newProduct(Request $request): Response {
         if(!isset($_SESSION))
         {
+            session_name("sid");
             session_start();
         }
         if (!(isset($_SESSION['id']) && isset($_SESSION['role']) && $_SESSION['role'] == "ADMIN")) {
@@ -58,6 +60,7 @@ class ProductController extends AbstractController
     public function addProduct(Request $request): Response {
         if(!isset($_SESSION))
         {
+            session_name("sid");
             session_start();
         }
         if (!(isset($_SESSION['id']) && isset($_SESSION['role']) && $_SESSION['role'] == "ADMIN")) {

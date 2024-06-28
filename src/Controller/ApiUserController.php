@@ -51,9 +51,11 @@ class ApiUserController extends AbstractController
             && $this->passwordHasher->verify($user->getPassword(), $request->get('password'))
         ) {
             if (session_status() == PHP_SESSION_NONE) {
+                session_name("sid");
                 session_start();
             }
             $_SESSION['id'] = $user->getId();
+            var_dump($user->getId());
             return $this->json([], Response::HTTP_OK);
         }
         return $this->json([], Response::HTTP_UNAUTHORIZED);

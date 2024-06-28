@@ -6,6 +6,7 @@ let loginFormHTML = `
   <label for="password" class="popup-form__label">Пароль</label>
   <input type="password" id="password" name="password" required placeholder="******" class="popup-form__field">
   <input type="submit" value="Войти" class="login-form__submit popup-form__submit popup-form__field">
+  <span class="login-form__register-link">Нет аккаунта? <a href="javascript:showForm(registerFormHTML, submitRegister);">Зарегистрируйся</a></span>
 </form>
 `;
 async function submitLogin(e) {

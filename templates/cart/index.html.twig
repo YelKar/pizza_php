@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/css/cart.css">
+{% endblock %}
+
+{% block content %}
+    <section class="section cart">
+        <h1 class="section__title">Оформление заказа</h1>
+        {% for product in cart %}
+            <div class="product" id="product_{{ product.product.id }}">
+                <div class="product__image" style="background-image: url('/uploads/{{ product.product.image }}');"></div>
+                <div class="product__info">
+                    <div class="product__">
+                        <h4 class="product__name">{{ product.product.name }}</h4>
+                        <span class="product__ingredients">{{ product.product.ingredients }}</span>
+                    </div>
+                </div>
+                <div class="product__buy">
+                    <label>
+                        <button class="product__count-button product__count-button_decrement" onclick="document.getElementById('product__count_{{ product.product.id }}').value--">-</button>
+                        <input type="number" min="0" id="product__count_{{ product.product.id }}" max="100" oninput="this.value = this.value > 100 ? 100 : this.value < 0 ? 0 : this.value" value="{{ product.count }}" class="product__count">
+                        <button class="product__count-button product__count-button_increment" onclick="document.getElementById('product__count_{{ product.product.id }}').value++">+</button>
+                    </label>
+                    <span class="product__price">{{ product.product.price }}₽</span>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ path('index') }}" class="unfilled-button">Добавить что-то ещё</a>
+    </section>
+{% endblock %}

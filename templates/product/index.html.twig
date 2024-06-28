@@ -1,29 +1,12 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" type="image/svg" href="/favicon.svg"/>
+{% extends "base.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
     <script src="/js/cart.js"></script>
-</head>
-<body>
-<header>
-    <div class="header__container">
-        <div class="heading">
-            <img src="/img/logo.svg" alt="<Пхпицца>" class="logo">
-            <span class="subtitle">для тех, кто увлечён своим делом</span>
-        </div>
-        <nav class="top-panel">
-            <span class="top-panel__element city">г. Йошкар-Ола</span>
-            <a class="top-panel__element user">
-                <span class="user__name">{{ user.firstName ?? "" }}</span>
-                <img src="/img/{{ user.avatar ?? "user-avatar.png" }}" alt="user.firstName" class="user__avatar">
-            </a>
-        </nav>
-    </div>
-</header>
-<main>
+{% endblock %}
+
+{% block content %}
+
     <label>
         <input type="text" placeholder="Поиск" class="search-field">
     </label>
@@ -36,19 +19,22 @@
         <a href="{{ (user ?? null) ? "/cart" : "javascript:showForm(loginFormHTML, submitLogin);" }}" class="filled-button">Корзина</a>
     </div>
     {% for section, products in sections %}
-        <section class="products-section" id="{{ section|replace({' ': '_'}) }}">
-            <h3 class="products-section__title">{{ section }}</h3>
+        <section class="section" id="{{ section|replace({' ': '_'}) }}">
+            <h3 class="section__title">{{ section }}</h3>
             <div class="products">
                 {% for product in products %}
-                    <a class="product" href="{{ path("show_product", {id: product.id}) }}">
+                    <a class="product" href="javascript:showProductCard('product_{{ product.id }}')" id="product_{{ product.id }}">
                         <div class="product__image" style="background-image: url('/uploads/{{ product.image }}');"></div>
                         <div class="product__info">
                             <h4 class="product__name">{{ product.name }}</h4>
-                            <span class="product__ingredients">{{ product.ingredients }}</span>
+                            <div class="product__full-description">
+                                <span class="product__ingredients">{{ product.ingredients }}</span>
+                                <span class="product__description">{{ product.description }}</span>
+                            </div>
                             <div class="product__buy">
                                 <span class="product__price">{{ product.price }}₽</span>
                                 {% if user ?? null %}
-                                    <button class="product__cart-button unfilled-button" onclick="event.preventDefault(); addToCart('{{ product.name }}');">В корзину</button>
+                                    <button class="product__cart-button unfilled-button" onclick="event.preventDefault(); addToCart('{{ product.id }}');">В корзину</button>
                                 {% else %}
                                     <button class="product__cart-button unfilled-button" onclick="event.preventDefault(); showForm(loginFormHTML, submitLogin);">В корзину</button>
                                 {% endif %}
@@ -59,9 +45,9 @@
             </div>
         </section>
     {% endfor %}
-</main>
-<script src="/js/popup-form.js"></script>
-<script src="/js/register.js"></script>
-<script src="/js/login.js"></script>
-</body>
-</html>
+    <script src="/js/popup.js"></script>
+    <script src="/js/popup-form.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/product-card.js"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+.cart {
+    display: block;
+    .product {
+        display: grid;
+        grid-template-columns: 108px 356px auto;
+        grid-template-rows: none;
+        gap: 41px;
+        justify-items: start;
+        height: 130px;
+        width: 100%;
+        padding: 0 12px 22px;
+        box-sizing: border-box;
+
+        border-bottom: 1px solid #c9c9c9;
+
+        > * {
+            display: inline-block;
+        }
+    }
+
+    .product:not(:last-child) {
+        margin-bottom: 33px;
+    }
+    .product__image {
+        width: 108px;
+        height: 108px;
+        border-radius: 6px;
+        bottom: 0;
+    }
+
+    .product__info {
+        background: none;
+        padding: 20px 0 0 0;
+        align-self: start;
+    }
+
+    .product__ingredients {
+        margin: 0;
+    }
+
+    .product__buy {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 30px;
+    }
+
+    .product__price {
+        color: var(--orange);
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .product__count {
+        position: relative;
+        text-align: center;
+        height: 47px;
+        width: 110px;
+        box-sizing: border-box;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px 0;
+        border-radius: 6px;
+        background-color: #f3f3f3;
+        border: none;
+        outline: none;
+        overflow: visible;
+        color: var(--text-color)
+    }
+    .product__count::-webkit-textfield-decoration-container {
+        overflow: visible;
+    }
+    .product__count::-webkit-inner-spin-button {
+        display: none;
+    }
+    label:has(.product__count) {
+        position: relative;
+    }
+    .product__count-button {
+        content: "-";
+        position: absolute;
+        display: block;
+        top: 10px;
+        z-index: 1;
+        font-size: 20px;
+        font-weight: 700;
+        outline: none;
+        border: none;
+        background: none;
+    }
+    .product__count-button_increment {
+        right: 15px;
+    }
+    .product__count-button_decrement {
+        left: 15px;
+    }
+}
